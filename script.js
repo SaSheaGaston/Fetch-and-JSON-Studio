@@ -14,13 +14,18 @@ window.addEventListener('load', function() {
                 console.log(jsonResponse[i].firstName);
 
                 let skillsMarkup = jsonResponse[i].skills.join(', ');
+                let activeText = ' style="color:red;"';
+
+                if(jsonResponse[i].active == true) {
+                    activeText = ' style="color:green;"';
+                }
                 
                 newMarkup += `<div class="astronaut">
                 <div class="bio">
                    <h3>${jsonResponse[i].firstName} ${jsonResponse[i].lastName}</h3>
                    <ul>
                       <li>Hours in space: ${jsonResponse[i].hoursInSpace}190</li>
-                      <li>Active: ${jsonResponse[i].active}</li>
+                      <li${activeText}>Active: ${jsonResponse[i].active}</li>
                       <li>Skills: ${skillsMarkup}</li>
                    </ul>
                 </div>
